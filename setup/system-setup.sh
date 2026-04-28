@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-sudo cat ./initramfs > /etc/initramfs-tools/initramfs.conf
+cat ./initramfs | sudo tee /etc/initramfs-tools/initramfs.conf 1&>/dev/null 
 # update the system
 sudo apt-get update
 sudo apt-get upgrade -y
