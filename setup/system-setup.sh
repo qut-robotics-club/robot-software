@@ -10,5 +10,5 @@ sudo apt-get install realvnc-vnc-server -y
 sudo raspi-config nonint do_vnc 0
 
 # install needed packages
-sudo apt-get python3-opencv -y
+sudo apt-get install python3-opencv -y
 # flask?
