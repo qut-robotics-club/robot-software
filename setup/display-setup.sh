@@ -40,5 +40,6 @@ pip3 install adafruit-circuitpython-rgb-display
 pip3 uninstall -y RPi.GPIO
 
 # --- ENABLE AUTOMATIC LAUNCH ---
+mkdir -p ~/.config/systemd/user/
 cp ~/Desktop/robot-software/setup/display-stats.service ~/.config/systemd/user
 systemctl --user enable --now display-stats.service
