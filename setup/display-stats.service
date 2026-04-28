@@ -1,0 +1,9 @@
+[Unit]
+Description=Show display stats
+
+[Service]
+Type=simple
+ExecStart=~/Desktop/robot-software/setup/display-stats-launch.sh
+
+[Install]
+WantedBy=default.target

@@ -30,30 +30,30 @@ def index():
 def update_state():
     state = request.json.get('state', 'stop')
 
-    movment = [0, 0]
+    movement = [0, 0]
 
     if state == 'stop': #Reset all motion, no movment at all
-        movment = [0, 0]
+        movement = [0, 0]
 
     else: #Some kind of movment so must caculate exactly what
         if 'left' in state:
-            movment = [movment[0] - turn_rate, movment[1] + turn_rate]
+            movement = [movement[0] - turn_rate, movement[1] + turn_rate]
         elif 'right' in state:
-            movment = [movment[0] + turn_rate, movment[1] - turn_rate]
+            movement = [movement[0] + turn_rate, movement[1] - turn_rate]
         elif 'up' in state:
-            movment = [movment[0] + up_rate, movment[1] + up_rate]
+            movement = [movement[0] + up_rate, movement[1] + up_rate]
         elif 'down' in state:
-            movment = [movment[0] - down_rate, movment[1] - down_rate]
+            movement = [movement[0] - down_rate, movement[1] - down_rate]
             
-    if movment[0] < 0:
-        MotorA.backward(abs(movment[0]) * SPEED * left_bias)
+    if movement[0] < 0:
+        MotorA.backward(abs(movement[0]) * SPEED * left_bias)
     else:
-        MotorA.forward(abs(movment[0]) * SPEED * left_bias)
+        MotorA.forward(abs(movement[0]) * SPEED * left_bias)
     
-    if movment[1] < 0:
-        MotorB.backward(abs(movment[1]) * SPEED * right_bias)
+    if movement[1] < 0:
+        MotorB.backward(abs(movement[1]) * SPEED * right_bias)
     else:
-        MotorB.forward(abs(movment[1]) * SPEED * right_bias)
+        MotorB.forward(abs(movement[1]) * SPEED * right_bias)
 
     return jsonify({'status': 'success', 'state': state})
 
