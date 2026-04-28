@@ -4,8 +4,6 @@ set -euo pipefail
 # https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi
 # --- CIRCUITPYTHON PREP ---
 # environment setup
-sudo apt-get update
-sudo apt-get -y upgrade
 sudo apt-get install -y python3-pip python3-setuptools python3-venv
 
 cd ~
