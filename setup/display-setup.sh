@@ -27,7 +27,7 @@ pip3 install --upgrade adafruit-blinka adafruit-python-shell click
 # fix pi cs pins
 # https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/spi-sensors-devices#reassigning-or-disabling-the-spi-chip-enable-lines-3097985
 wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/main/raspi-spi-reassign.py
-sudo -E env PATH=$PATH python3 raspi-spi-reassign.py --ce0=disabled --ce1=disabled
+echo "n" | sudo -E env PATH=$PATH python3 raspi-spi-reassign.py --ce0=disabled --ce1=disabled
 rm raspi-spi-reassign.py
 
 # --- DISPLAY SETUP ---
@@ -41,3 +41,4 @@ pip3 uninstall -y RPi.GPIO
 mkdir -p ~/.config/systemd/user/
 cp ~/Desktop/robot-software/setup/display-stats.service ~/.config/systemd/user
 systemctl --user enable --now display-stats.service
+echo "Reboot required to finish setting up display!"
