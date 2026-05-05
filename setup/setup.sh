@@ -17,3 +17,6 @@ else
   echo "$ENV_SOURCE" >> ~/.bashrc
 fi
 echo "Please run \"source ~/env/bin/activate\" to activate the python environment"
+echo "Rebooting in 5 seconds to apply changes... CTRL+C to cancel"
+sleep 5
+sudo reboot
