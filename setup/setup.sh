@@ -5,6 +5,8 @@ set -euo pipefail
 ./fix-time.sh
 # update and install needed packages
 ./system-setup.sh
+# install python packages
+./py-setup.sh
 # setup the display (to show stats)
 ./display-setup.sh
 
